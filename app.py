@@ -16,7 +16,8 @@ st.markdown("Real-time weather + Historical crop yield data for Tamil Nadu")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('All-India District-wise Crop and Climate Dataset (19842017).csv')
+    url = 'https://drive.google.com/uc?export=download&id=1tvZEcFor8V2-3f_UAjoX2oNy5p082Lf8'
+    df = pd.read_csv(url)
     df.columns = df.columns.str.strip()
     df['YIELD (Kg per ha)']      = pd.to_numeric(df['YIELD (Kg per ha)'],      errors='coerce')
     df['PRODUCTION (1000 tons)'] = pd.to_numeric(df['PRODUCTION (1000 tons)'], errors='coerce')
